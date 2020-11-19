@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title> Venetian biographies </title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/main.css') }}">
+</head>
+  <body>
+    
+    <div id="colorsplash"></div>
+
+    <div class="container-md">
+        <div class="row">
+            <div class="col">
+                <div class="mx-auto my-5">
+                    <h1>A Venice you've never visited before</h1>
+                    <p class="lead">Jump into a fictional past, by generating biographies of imaginary Venetian lifes.</p>
+                </div>
+
+                <!-- <div class="row">
+
+                </div> -->
+
+
+                <form name="generateform" method="POST" action="/"> <!-- class="form-inline"> -->
+                    <div class="form-group row">
+                        <!-- <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                        </div> -->
+                        <div class="form-group">
+                            <label class="sr-only" for="name">Name</label>
+                            <input type="text" class="form-control mb-1 mr-sm-1" id="name" name="name" placeholder="Jane Doe" required  >
+                        </div>
+                    
+                        <div class="col-sm-2">
+                            <input type="text" readonly class="form-control-plaintext" id="middlePrompt" value="was a venetian">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="sr-only" for="occupation">Occupation</label>
+                            <input type="text" class="form-control mb-1 mr-sm-1" id="occupation" name="occupation" placeholder="Occupation" required>
+                        </div>
+                        
+                      </div>
+                      <div class="form-group row float-sm-right">
+                        <div class="col-sm-auto">
+                            <button class="btn btn-light mb-1">Randomize</button>
+                        </div>
+                        <div class="col-sm-auto">
+                            <button type="submit" class="btn btn-primary mb-1">Generate</button>
+                        </div>
+                      </div>
+                    
+                  </form>
+
+                  <div class="container">           
+
+                <div class="well well-sm text-center">
+
+                    <h4>Fidelity</h4>
+                    
+                    <div class="btn-group" data-toggle="buttons">
+                        
+                        <label class="btn btn-danger">
+                            <input type="radio" name="options" id="option2" autocomplete="off" chacked>
+                            <span class="glyphicon glyphicon-ok">None</span>
+                        </label>
+
+                        <label class="btn btn-warning">
+                            <input type="radio" name="options" id="option1" autocomplete="off">
+                            <span class="glyphicon glyphicon-ok">Minimal</span>
+                        </label>
+
+                        <label class="btn btn-info">
+                            <input type="radio" name="options" id="option2" autocomplete="off">
+                            <span class="glyphicon glyphicon-ok">Fairly good</span>
+                        </label>
+
+                        </label>
+
+                        <label class="btn btn-success active">
+                            <input type="radio" name="options" id="option2" autocomplete="off">
+                            <span class="glyphicon glyphicon-ok">Full</span>
+                        </label>
+                    
+                    </div>
+
+
+                </div>
+
+            </div>
+
+                  <hr>
+
+                  <div class="my-5">
+                      <p class="text-justify">Victorio Presentario was a venetian researcher who was granted large funds. [SEP] His financial information comes from the compilation of documents and financial records of the Republic of Venice. His publications include:  A Catalogue of Venetian Authors, Volume 1, A Catalogue of Venetian Authors, Volume 2, A Catalogue of Venetian Artists, Volume 3, A Catalogue of Venetian Artists, Volume 4, and A Catalogue of Venetian Composers.     Presentario was born in Venice in 1524. He is first heard of in 1549, when he published a list of forty composers who had been issued between 1547 and 1563, and were either men of learning or of excellent family. Presentario's list is one of the earliest sources to document the number of composers of Venetian origin. Within the context of the early musical genre, presentario was a pioneer of the presentantian School, which was later followed by many composers of Venetian origin, including Giovanni Benedetto Ferrari, Filippo Zaniberti, Paolo Veronese and Andrea Gabrieli. The use of presentational techniques by composers from abroad was also an important factor in influencing the Venetian compositional style.</p>
+                  </div>
+            </div>
+            <div class="col-md-3" id="decodiv">
+                <img class="img-responsive" src="/static/pngegg.png" alt="A drawing of Venice." id="decoration">
+            </div>
+        </div>
+    </div>
+    	
+                <!-- <div class="msg-group center">
+                	
+                    <div class="card">
+                         <div class="card-body">
+                             <h6 class="card-subtitle mb-2 text-muted text-left">yingshaoxo</h6>
+                             <p class="card-text float-left">Hi ~</p>
+                         </div>
+                    </div>
+                      
+                    <div class="card">
+                         <div class="card-body">
+                             <h6 class="card-subtitle mb-2 text-muted text-right">yingshaoxo</h6>
+                             <p class="card-text float-right">Welcome to here!</p>
+                         </div>
+                    </div>                      
+                   
+                </div>
+                
+                <div class="input-group">
+                	<textarea id="input-box" class="form-control" rows="1" placeholder="Say something..."></textarea>
+                    <span class="input-group-btn">
+                        <button class="btn btn-secondary" type="button">send</button>
+                    </span>
+               </div> 
+    </div>-->
+
+<!-- <script>
+    var button = document.querySelector('form[name="generateform"] > button');
+    button.addEventListener(function() {
+      document.querySelector("form[name="generateform"]").submit();
+    });
+</script> -->
+
+<!-- jQuery & Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<script>
+    // class chat_control {
+    //     constructor() {
+    //         this.msg_list = $('.msg-group');
+    //     }
+
+    //     send_msg(name, msg) {
+    //         this.msg_list.append(this.get_msg_html(name, msg, 'right'));
+    //         this.scroll_to_bottom(); 
+    //     }
+
+    //     receive_msg(name, msg) {
+    //         this.msg_list.append(this.get_msg_html(name, msg, 'left'));
+    //         this.scroll_to_bottom(); 
+    //     }
+
+    //     get_msg_html(name, msg, side) {
+    //         var msg_temple = `
+    //             <div class="card">
+    //                  <div class="card-body">
+    //                      <h6 class="card-subtitle mb-2 text-muted text-${side}">${name}</h6>
+    //                      <p class="card-text float-${side}">${msg}</p>
+    //                  </div>
+    //             </div>
+    //             `;
+    //         return msg_temple;
+    //     }
+
+    //     scroll_to_bottom() {
+    //         this.msg_list.scrollTop(this.msg_list[0].scrollHeight);
+    //     }
+    // }
+
+
+    // var chat = new chat_control();
+    // chat.receive_msg('yingshaoxo', 'This was made for you! \`2017/(520*1314)\`');
+
+    // send_button = $('button') // get jquery element from html table name
+    // input_box = $('#input-box') // get jquery element from div id
+    // // also you could get it by $('.form-control') or $('textarea')
+
+    // function handle_msg(msg) {
+    //     msg = msg.trim()
+    //     msg = msg.replace(/(?:\r\n|\r|\n)/g, '<br>')
+    //     return msg
+    // }
+
+    // function send_msg() {
+    //     msg = handle_msg(input_box.val());
+    //     if (msg != '') {
+    //         chat.send_msg('you', msg);
+    //         input_box.val('');
+
+    //         setTimeout(function(){ chat.receive_msg('yingshaoxo', 'I can hear you.'); }, 1000);
+    //         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    //     }
+    // }
+
+    // function box_key_pressing() {
+    //     // control + enter was pressed
+    //     if ((event.keyCode === 10 || event.keyCode === 13) && event.ctrlKey) {
+    //         send_msg();
+    //     }
+    //     // esc was pressed
+    //     if (event.keyCode === 27) {
+    //         input_box.blur();
+    //     }
+    // }
+
+    // send_button.on('click', send_msg.bind());
+    // input_box.on('keyup', box_key_pressing.bind());
+</script>
+
+  </body>
+</html>

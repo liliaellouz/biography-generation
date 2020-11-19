@@ -4,3 +4,4 @@ BERT/gpt2-bert-reddit-bot/
 BERT/bert_for_long_text/
 gpu/
 epfl_server/tmp/
+interface/__pycache__/
