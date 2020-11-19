@@ -1,0 +1,30 @@
+FE - requests (= BE - received stuff)
+
+POST request -> {'name' : x, 'ocupation' : y}
+	-> response: {'biography' : x, 'confidence' : y} 
+
+
+BE - requests (= GM - received stuff)
+
+generate_bio(str name, str ocupation [, int threshold - 0,1,2,3])
+	(str generated_bio, 
+	float confidence)
+
+generate_bio(str prompt [, int threshold - 0,1,2,3])
+	(str generated_bio, 
+	float confidence)
+
+generate_random_bio([int threshold])
+	(str generated_bio, 
+	float confidence)
+
+evaluate_text(str bio_text) ->
+	(float mininal_chunck_val, 
+	 float avg_chunk_val, 
+	 float[] all_vals)
+
+
+0.00 - no fidelity (fastest, 100 chars or more)
+0.50 - minimal fidelity
+0.70 - fairly good fidelity
+0.80 - pretty realistic
