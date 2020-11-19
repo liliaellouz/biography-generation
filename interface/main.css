@@ -1,0 +1,67 @@
+@media (max-width: 1200px) { 
+    #colorsplash {
+        height: 315px !important;
+    }
+}
+
+@media (max-width: 991px) { 
+    #decodiv { 
+        display: none;
+    }
+}
+@media (max-width: 768px) {}
+@media (max-width: 576px) {}
+@media (max-width: 708px) {
+    #colorsplash {
+        display: none;
+    }
+    
+}
+
+
+  
+#decoration {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 3%;
+}
+
+#colorsplash {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 325px;
+    background-color: aliceblue;
+}
+
+form {
+    margin: 7% 0 2% 0;
+}
+form::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+input[type="text"],
+select.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+input[type="text"]:focus,
+select.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+input[type="text"].form-control-plaintext {
+    border-bottom: none;
+    width: 7em !important;
+}
