@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, json
-# from flask import request, jsonify
-
+import random
 
 app = Flask(__name__)
 
@@ -9,18 +8,32 @@ def index():
 	return render_template('index.html')
 
 
+
 @app.route('/', methods=['POST'])
 def get_bio():
 	if request.method == "POST":
 
-		_json = json.dumps(request.form)
+		# name = request.form['name']
+		# occupation = request.form["occupation"]
+		# fidelity = request.form["fidelity"]
 
-		return str(json.dumps(request.form))
-	else: return "not a POST request", 500
-	# occupation = request.form['occupation']
+		return f"{name} was a Venetian {occupation}. The fidelity level of this bio is {fidelity}."
+		# return str(request.form)
+		# return str(request.headers)
+	elif request.method == "GET":
+		return "This is a random bio"
 
-	# return "Json is : " + str(request.get_json()['name']), 201
-	# return render_template('index.html')
+
+
+@app.route('/random', methods=['GET'])
+def randomize():
+	if request.method == "GET":
+		forenames = ["Giovanni", "Giovanna"]
+		surnames = ["Padova", "Belluno"]
+		occupations = ["merchant", "artist"]
+		return f"{random.choice(forenames)} {random.choice(surnames)} was a Venetian {random.choice(occupations)}."
+
+
 
 if __name__ == "__main__":
 	app.run()

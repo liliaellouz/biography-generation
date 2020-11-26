@@ -52,6 +52,7 @@ form::after {
   opacity: 1;       
 }
 
+
 input[type="text"],
 select.form-control {
   background: transparent;
