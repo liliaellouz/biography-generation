@@ -13,9 +13,9 @@ def index():
 def get_bio():
 	if request.method == "POST":
 
-		# name = request.form['name']
-		# occupation = request.form["occupation"]
-		# fidelity = request.form["fidelity"]
+		name = request.form['name']
+		occupation = request.form["occupation"]
+		fidelity = request.form["fidelity"]
 
 		return f"{name} was a Venetian {occupation}. The fidelity level of this bio is {fidelity}."
 		# return str(request.form)
