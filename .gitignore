@@ -1,6 +1,7 @@
 .DS_Store
 .ipynb_checkpoints/
-BERT/gpt2-bert-reddit-bot/
-BERT/bert_for_long_text/
-gpu/
-epfl_server/tmp/
+outdated/BERT/gpt2-bert-reddit-bot/
+outdate/BERT/bert_for_long_text/
+outdated/gpu/
+outdated/epfl_server/tmp/
+weights/
