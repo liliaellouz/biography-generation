@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title> Venetian biographies </title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/main.css') }}">
+</head>
+  <body>
+    
+    <div id="colorsplash"></div>
+
+    <div class="container-md">
+        <div class="row">
+            <div class="col">
+                <div class="mx-auto my-5">
+                    <h1>A Venice you've never visited before</h1>
+                    <p class="lead">Jump into a fictional past, by generating biographies of imaginary Venetian lifes.</p>
+                </div>
+
+                <!-- <div class="row">
+
+                </div> -->
+
+
+                <form name="generateform" id="generateform" method="POST" action="/"> <!-- class="form-inline"> -->
+
+                    <div class="form-group row">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">Name</label>
+                            <input type="text" class="form-control mb-1 mr-sm-1" id="name" name="name" placeholder="Jane Doe" required  >
+                        </div>
+                    
+                        <div class="col-sm-2">
+                            <input type="text" readonly class="form-control-plaintext" id="middlePrompt" value="was a venetian">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="sr-only" for="occupation">Occupation</label>
+                            <input type="text" class="form-control mb-1 mr-sm-1" id="occupation" name="occupation" placeholder="Occupation" required>
+                        </div>
+                      </div>
+
+                        <p>Fidelity</p>
+                        <div class="btn-group" data-toggle="buttons">
+                            
+                            
+                            <label class="btn btn-danger">
+                                <input type="radio" name="fidelity" id="fidelity_0" value="0" autocomplete="off" chacked>
+                                <span class="glyphicon glyphicon-ok">None</span>
+                            </label>
+
+                            <label class="btn btn-warning">
+                                <input type="radio" name="fidelity" id="fidelity_1" value="1"  autocomplete="off">
+                                <span class="glyphicon glyphicon-ok">Minimal</span>
+                            </label>
+
+                            <label class="btn btn-info">
+                                <input type="radio" name="fidelity" id="fidelity_2" value="2" autocomplete="off" checked="checked">
+                                <span class="glyphicon glyphicon-ok">Good</span>
+                            </label>
+
+                            <!-- </label> -->
+
+                            <label class="btn btn-success active">
+                                <input type="radio" name="fidelity" id="fidelity_3" value="3" autocomplete="off">
+                                <span class="glyphicon glyphicon-ok">Full</span>
+                            </label>
+                          </div>
+
+                      <div class="form-group row float-sm-right">
+
+                        <div class="col-sm-auto">
+                            <input type="submit" name="action" value="Generate" class="btn btn-primary mb-1"></input>
+                        </div>
+
+                    
+                  </form>
+
+
+                <!-- <form name="randomizeform" id="randomizeform" method="GET"> -->
+
+                     <div class="col-sm-auto">
+                        <input type="submit" id="randomize-button" name="action" value="Randomize" class="btn btn-dark mb-1"></input>
+                    </div>
+
+                <!-- </form> -->
+
+
+               
+                  <!-- <div class="container">           
+
+                <div class="well well-sm text-center">
+
+                    <h4>Fidelity</h4>
+                    
+                    <div class="btn-group" data-toggle="buttons">
+                        
+                        <label class="btn btn-danger">
+                            <input type="radio" name="options" id="option2" autocomplete="off" chacked>
+                            <span class="glyphicon glyphicon-ok">None</span>
+                        </label>
+
+                        <label class="btn btn-warning">
+                            <input type="radio" name="options" id="option1" autocomplete="off">
+                            <span class="glyphicon glyphicon-ok">Minimal</span>
+                        </label>
+
+                        <label class="btn btn-info">
+                            <input type="radio" name="options" id="option2" autocomplete="off">
+                            <span class="glyphicon glyphicon-ok">Good</span>
+                        </label>
+
+                        </label>
+
+                        <label class="btn btn-success active">
+                            <input type="radio" name="options" id="option2" autocomplete="off">
+                            <span class="glyphicon glyphicon-ok">Full</span>
+                        </label>
+                    
+                    </div> 
+
+
+                </div>-->
+
+            </div>
+
+                  <hr>
+
+                  <div id="biography" class="my-5">
+                      <p class="text-justify">Victorio Presentario was a venetian researcher who was granted large funds. [SEP] His financial information comes from the compilation of documents and financial records of the Republic of Venice. His publications include:  A Catalogue of Venetian Authors, Volume 1, A Catalogue of Venetian Authors, Volume 2, A Catalogue of Venetian Artists, Volume 3, A Catalogue of Venetian Artists, Volume 4, and A Catalogue of Venetian Composers.     Presentario was born in Venice in 1524. He is first heard of in 1549, when he published a list of forty composers who had been issued between 1547 and 1563, and were either men of learning or of excellent family. Presentario's list is one of the earliest sources to document the number of composers of Venetian origin. Within the context of the early musical genre, presentario was a pioneer of the presentantian School, which was later followed by many composers of Venetian origin, including Giovanni Benedetto Ferrari, Filippo Zaniberti, Paolo Veronese and Andrea Gabrieli. The use of presentational techniques by composers from abroad was also an important factor in influencing the Venetian compositional style.</p>
+                  </div>
+            </div>
+            <div class="col-md-3" id="decodiv">
+                <img class="img-responsive" src="/static/pngegg.png" alt="A drawing of Venice." id="decoration">
+            </div>
+        </div>
+    </div>
+    	
+
+<!-- jQuery & Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Scripts to update the page content with server's response -->
+<!-- <script>
+function ajaxSend() {
+    //Input element
+    var input = document.getElementById('randomize-button'); 
+    //Content element to show message later
+    var content = document.getElementById('biography'); 
+
+    var xhr = new XMLHttpRequest(); //New object created
+    
+    //Check for state change of this object.
+    xhr.onreadystatechange = function() {
+        // $('#biography p').html("<p>Success!</p>");
+        // if(this.readyState === 4 && this.status === 200) {
+        //     //If status is 200, show success.
+        //     // content.innerHTML = this.response; 
+        //     // content.innerHTML = this.response; 
+        //     $('#biography p').html( this.responseText );
+        // } else if(this.status === 400) {
+        //     //If status is 400, show failure
+        //     content.innerHTML = "<p>Failed.</p>"; 
+
+        // } else {
+        //     //Else show working on webpage.
+        //     content.innerHTML = "<p>Working...</p>" ; 
+        // }
+        $('#biography p').html( "Hi" );
+    }
+    //Open a POST request to send data
+    xhr.open('GET', '/', true); 
+    //Send the input in query url
+    xhr.send(); 
+}
+</script> -->
+
+<!-- Generate -->
+<script>
+    (function($){
+        function processForm( e ){
+            $.ajax({
+                url: '/',
+                dataType: 'text',
+                type: 'post',
+                contentType: 'application/x-www-form-urlencoded',
+                // contentType: 'application/json',
+                data: $(this).serialize(),
+                success: function( data, textStatus, jQxhr ){
+                    $('#biography p').html( data );
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log( errorThrown );
+                }
+            });
+
+            e.preventDefault();
+        }
+
+        $('#generateform').submit( processForm );
+    })(jQuery);
+</script>
+
+<!-- Randomize -->
+<!-- <script>
+    (function($){
+        function processForm( e ){
+            $.ajax({
+                url: '/',
+                dataType: 'text',
+                type: 'get',
+                contentType: 'application/x-www-form-urlencoded',
+                // contentType: 'application/json',
+                data: $(this).serialize(),
+                success: function( data, textStatus, jQxhr ){
+                    $('#biography p').html( data );
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log( errorThrown );
+                }
+            });
+
+            e.preventDefault();
+        }
+
+        $('#randomizeform').submit( processForm );
+    })(jQuery);
+</script> -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#randomize-button").click(function(){
+        $.get("/random", function(data){
+            // Display the returned data in browser
+            $("#biography p").html(data);
+        });
+    });
+});
+</script>
+
+  </body>
+</html>

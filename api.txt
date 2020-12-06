@@ -10,7 +10,7 @@ generate_bio(str name, str ocupation [, int threshold - 0,1,2,3])
 	(str generated_bio, 
 	float confidence)
 
-generate_bio(str prompt [, int threshold - 0,1,2,3])
+generate_bio_full_prompt(str prompt [, int threshold - 0,1,2,3])
 	(str generated_bio, 
 	float confidence)
 

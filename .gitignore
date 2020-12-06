@@ -5,3 +5,4 @@ outdate/BERT/bert_for_long_text/
 outdated/gpu/
 outdated/epfl_server/tmp/
 weights/
+interface/__pycache__/
