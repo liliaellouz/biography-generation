@@ -6,3 +6,7 @@ outdated/gpu/
 outdated/epfl_server/tmp/
 weights/
 interface/__pycache__/
+weights/
+generative_module/checkpoint/
+generative_module/data/
+backup_requirements.txt
