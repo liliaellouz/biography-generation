@@ -4,8 +4,8 @@
 
 * In order to use the enhacements module, execute the following command from your terminal:
 
-`python Enhancements.py --path <path>` such as <path> is the path to the biography
+`python Enhancements.py --path <path>` such as path is the path to the biography
 
 or
 
-`python Enhancements.py --text <text>` such as <text> is a string of the biography
+`python Enhancements.py --text <text>` such as text is a string of the biography
