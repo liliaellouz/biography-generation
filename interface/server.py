@@ -31,7 +31,11 @@ def randomize():
 		forenames = ["Giovanni", "Giovanna"]
 		surnames = ["Padova", "Belluno"]
 		occupations = ["merchant", "artist"]
-		return f"{random.choice(forenames)} {random.choice(surnames)} was a Venetian {random.choice(occupations)}."
+		result = {'name': random.choice(forenames) +" "+ random.choice(surnames),
+				'occupation' : random.choice(occupations)}
+		return json.dumps(result)
+		# return (random.choice(forenames) + random.choice(surnames), random.choice(occupations))
+		# return f"{random.choice(forenames)} {random.choice(surnames)} was a Venetian {random.choice(occupations)}."
 
 
 

@@ -36,8 +36,10 @@
 
                     <div class="form-group row">
                         <div class="form-group">
+                            <!-- <div class="col-sm-5"> -->
                             <label class="sr-only" for="name">Name</label>
                             <input type="text" class="form-control mb-1 mr-sm-1" id="name" name="name" placeholder="Jane Doe" required  >
+                            <!-- </div> -->
                         </div>
                     
                         <div class="col-sm-2">
@@ -59,39 +61,38 @@
                        
 
                     </div>
+
+
+                    <!-- <hr> -->
+                    <p class="lead">Realism level</p>    
+                    
+                    <div class="btn-group col-sm-auto" data-toggle="buttons">
+                        <label class="btn btn-info">
+                            <input type="radio" name="fidelity" id="fidelity_0" value="0" autocomplete="off"><!-- None --></input>
+                            <span class="glyphicon glyphicon-ok">None</span>
+                        </label>
+
+                        <label class="btn btn-success">
+                            <input type="radio" name="fidelity" id="fidelity_1" value="1"  autocomplete="off">
+                            <span class="glyphicon glyphicon-ok">Minimal</span>
+                        </label>
+
+                        <label class="btn btn-warning">
+                            <input type="radio" name="fidelity" id="fidelity_2" value="2" autocomplete="off" checked="checked">
+                            <span class="glyphicon glyphicon-ok">Good</span>
+                        </label>
+
+                        <label class="btn btn-danger">
+                            <input type="radio" name="fidelity" id="fidelity_3" value="3" autocomplete="off">
+                            <span class="glyphicon glyphicon-ok">Full</span>
+                        </label>
+                    </div>
                     
                 </form>
 
 
 
-
-                <hr>
-                <p class="lead">Realism level</p>    
-                
-                <div class="btn-group col-sm-auto" data-toggle="buttons">
-                    <label class="btn btn-dark">
-                        <input type="radio" name="fidelity" id="fidelity_0" value="0" autocomplete="off"><!-- None --></input>
-                        <span class="glyphicon glyphicon-ok">None</span>
-                    </label>
-
-                    <label class="btn btn-danger">
-                        <input type="radio" name="fidelity" id="fidelity_1" value="1"  autocomplete="off">
-                        <span class="glyphicon glyphicon-ok">Minimal</span>
-                    </label>
-
-                    <label class="btn btn-info">
-                        <input type="radio" name="fidelity" id="fidelity_2" value="2" autocomplete="off" checked="checked">
-                        <span class="glyphicon glyphicon-ok">Good</span>
-                    </label>
-
-                    <label class="btn btn-success active">
-                        <input type="radio" name="fidelity" id="fidelity_3" value="3" autocomplete="off">
-                        <span class="glyphicon glyphicon-ok">Full</span>
-                    </label>
-                </div>
-
-
-                 <div class="col-sm-auto">
+                 <div class="col-sm-auto" id="randomize-div">
                     <input type="submit" id="randomize-button" name="action" value="Randomize" class="btn btn-dark mb-1" style="position: absolute; right: 0;"></input>
                 </div>
 
@@ -209,7 +210,12 @@ $(document).ready(function(){
     $("#randomize-button").click(function(){
         $.get("/random", function(data){
             // Display the returned data in browser
-            $("#biography p").html(data);
+            // $("#biography").text(data);
+            var resp = JSON.parse(data);
+            var name = document.getElementById("name");
+            name.value = resp.name;
+            occupation.value = resp.occupation;
+
         });
     });
 });

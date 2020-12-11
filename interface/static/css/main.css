@@ -10,13 +10,35 @@
     }
 }
 @media (max-width: 768px) {}
-@media (max-width: 576px) {}
+@media (max-width: 576px) {
+  #biography{
+    margin-top: 5rem !important;
+  }
+  #randomize-button{
+    top: 0 !important;
+    float: right;
+    margin: 10px 15px;
+  }
+  #randomize-div::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
 
 @media (max-width: 708px) {
     #colorsplash {
         display: none;
     }
 }
+
+/* FULL : #bd2130
+GOOD: #ffc107
+MINIMAL: #008a20
+NONE: #17a2b8;
+;
+*/
+
   
 #decoration {
     height: 100vh;
@@ -30,8 +52,22 @@
     top: 0;
     right: 0;
     left: 0;
-    height: 283px;
+    height: 400px;
     background-color: aliceblue;
+}
+
+#randomize-div{
+  position: absolute;
+  right: 0;
+}
+
+#randomize-button{
+  position: relative !important;
+  top: -3.75em;
+}
+
+div.form-group.row > div.form-group {
+  padding-left: 15px;
 }
 
 form {
