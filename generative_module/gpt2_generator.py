@@ -61,10 +61,10 @@ def generate_fake_bio(prompt, sess=None):
 	# if not sess:
 	# 	sess = init()
 
-	proposed_bio = ''
+	split_proposed_bio = ''
 
 	# ensure minimum bio length (GPT-2 can be lead into outputing nothing)
-	while len(proposed_bio) < 100:
+	while len(split_proposed_bio) < 100:
 		proposed_bio = str(gpt2.generate(sess, 
 										run_name=model_run_name, 
 										return_as_list=True, 

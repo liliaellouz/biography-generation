@@ -431,16 +431,7 @@ def evaluate_text(text):
 	# chunkify text
 	chunks = get_split(clean_txt(text.replace('\n', ' ')))
 
-	single_chunk = False
-	if len(chunks) == 1:
-		single_chunk = True
-		# the estimator expects more than 1 chunk
-		chunks += ['temporary second block'] 
-
 	# get predictions for each result
 	predictions_proposed = get_prediction(chunks)
-
-	if single_chunk:
-		return predictions_proposed[:-1].sort_values(by='prob_real')
 	
 	return predictions_proposed.sort_values(by='prob_real')
