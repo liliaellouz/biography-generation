@@ -1,4 +1,3 @@
-
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -265,16 +264,18 @@ def nlp_sd_date_adjustment(bio):
     Rets:
     the biography with the adjusted dates (string)
     """
+    #get nlp doc from the biography
     nlp = spacy.load('en')
     neuralcoref.add_to_pipe(nlp)
     bio_doc = nlp(bio)
 #     sentences_og = nltk.tokenize.sent_tokenize(example)
 #     sentences_mod = nltk.tokenize.sent_tokenize(example_doc._.coref_resolved)
-    main_cluster = bio_doc._.coref_clusters[0]
-    main_cluster_indices = [i[0].i for i in main_cluster]
-    events = []
-    born_b = False
-    dead_b = False
+    main_cluster = bio_doc._.coref_clusters[0] #the mentions of the biographee
+    main_cluster_indices = [i[0].i for i in main_cluster] #indices of the mentions of the biographee
+    events = [] #list of events marked by verbs in the biography
+    born_b = False # boolean to mark whether there is a birth event
+    dead_b = False # boolean to mark whether there is a death event
+    #look for birth and death events, look ofor the years associated to the events
     for i in main_cluster_indices:
         subject = bio_doc[i]
         head = get_root(bio_doc[i])
@@ -300,18 +301,22 @@ def nlp_sd_date_adjustment(bio):
             born = i[2]
         if i[1].text == 'died':
             dead = i[2]
+    #check if birth date is there and check range between born and earliest mentioned date
     if born:
         if int(dates[1].text) - int(born.text) < 10 or int(dates[1].text) - int(born.text) > 20:
             born_rep = int(dates[1].text) - 20
+    #check if birth and death dates are there and check range and fix between them
     if born and dead:
         if int(dead.text) - born_rep > 100 or int(dead.text) - born_rep < 1:
             dead_rep = born_rep + 80
+    #if both birth and death date do not exist, make sure range of dates in biographies spans 80 years max
     elif int(dates[-1].text) - int(dates[0].text) > 80:
         if born_rep == -1:
             last_date_rep = int(dates[0].text) + 80
         else:
             last_date_rep = born_rep + 80
     result_doc = bio_doc
+    #replace the dates
     if born_rep != -1:
         result_doc = nlp.make_doc(bio_doc[:born.i].text + f" {born_rep}" + bio_doc[born.i+1:].text)
     if dead_rep != -1:
@@ -339,6 +344,8 @@ def get_person_replacement(person, person_info, minimum, maximum):
     Rets:
     ret - a dictionnary containing the Spacy object as a key and its replacement as a string 
     """
+    
+    #extract the people who could correspond to the needed descriptions as well as their info
     historical_figures_era = historical_figures[historical_figures['birth_year'].astype(int) > minimum]
     historical_figures_era = historical_figures_era[historical_figures_era['birth_year'].astype(int) < maximum] 
 
@@ -351,6 +358,7 @@ def get_person_replacement(person, person_info, minimum, maximum):
     industry = person_info['industry'].values[0]
     domain = person_info['domain'].values[0]
 
+    #vary level of precisions depending on the available information regarding the person we would like to replace in the biography (geography)
     if isinstance(city, str):
         df_geo = historical_figures_era[historical_figures_era['city'] == city]
     elif isinstance(state, str):
@@ -362,6 +370,7 @@ def get_person_replacement(person, person_info, minimum, maximum):
     else:
         df_geo = historical_figures
 
+    #vary level of precisions depending on the available information regarding the person we would like to replace in the biography (occupation)
     df_occu = pd.DataFrame()
     if isinstance(occupation, str):
         df_occu = df_geo[df_geo['occupation'] == occupation]
