@@ -11,6 +11,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def get_bio():
+	"""Given name, occupation and a threshhold of realness, generates a biography"""
 	if request.method == "POST":
 
 		name = request.form['name']
@@ -18,21 +19,18 @@ def get_bio():
 		fidelity = request.form["fidelity"]
 
 		return f"{name} was a Venetian {occupation}. The fidelity level of this bio is {fidelity}."
-		# return str(request.form)
-		# return str(request.headers)
-	elif request.method == "GET":
-		return "This is a random bio"
-
 
 
 @app.route('/random', methods=['GET'])
 def randomize():
+	"""Generates random name & occupation combination"""
 	if request.method == "GET":
 		forenames = ["Giovanni", "Giovanna"]
 		surnames = ["Padova", "Belluno"]
 		occupations = ["merchant", "artist"]
-		return f"{random.choice(forenames)} {random.choice(surnames)} was a Venetian {random.choice(occupations)}."
-
+		result = {'name': random.choice(forenames) +" "+ random.choice(surnames),
+				'occupation' : random.choice(occupations)}
+		return json.dumps(result)
 
 
 if __name__ == "__main__":
