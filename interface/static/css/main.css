@@ -1,6 +1,6 @@
 @media (max-width: 1200px) { 
     #colorsplash {
-        height: 315px !important;
+        height: 100px !important;
     }
 }
 
@@ -11,14 +11,12 @@
 }
 @media (max-width: 768px) {}
 @media (max-width: 576px) {}
+
 @media (max-width: 708px) {
     #colorsplash {
         display: none;
     }
-    
 }
-
-
   
 #decoration {
     height: 100vh;
@@ -32,7 +30,7 @@
     top: 0;
     right: 0;
     left: 0;
-    height: 325px;
+    height: 283px;
     background-color: aliceblue;
 }
 
@@ -46,7 +44,7 @@ form::after {
   }
 
 .btn span.glyphicon {         
-  opacity: 0;       
+  opacity: 0.4;       
 }
 .btn.active span.glyphicon {        
   opacity: 1;       
