@@ -18,7 +18,7 @@ flask ...
 ## Installation
 For ease of installation, a `requirements.txt` has been automatically created from the virtual python environment used to develop the modules.
 
-In addition, in order to download the Spacy model required for the biography generation (for the enhancement module in particular), the following command should be run:
+In addition, in order to download the Spacy model required for the biography generation (for the enhancement module in particular), the following command should be run (after installing the libraries in `requirements.txt`):
 
 ```
 python -m space download en
