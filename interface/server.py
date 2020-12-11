@@ -13,7 +13,6 @@ def index():
 def get_bio():
 	"""Given name, occupation and a threshhold of realness, generates a biography"""
 	if request.method == "POST":
-
 		name = request.form['name']
 		occupation = request.form["occupation"]
 		fidelity = request.form["fidelity"]
