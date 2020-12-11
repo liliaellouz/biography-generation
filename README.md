@@ -12,7 +12,7 @@ The project can be roughly split into three modules:
 TO BE FINISHED
 To start the server, run
 ```python
-flask ...
+python server.py
 ```
 
 ## Installation
