@@ -36,10 +36,8 @@
 
                     <div class="form-group row">
                         <div class="form-group">
-                            <!-- <div class="col-sm-5"> -->
                             <label class="sr-only" for="name">Name</label>
-                            <input type="text" class="form-control mb-1 mr-sm-1" id="name" name="name" placeholder="Jane Doe" required  >
-                            <!-- </div> -->
+                            <input type="text" class="form-control mb-1 mr-sm-1" id="name" name="name" placeholder="Jane Doe" required>
                         </div>
                     
                         <div class="col-sm-2">
@@ -66,23 +64,23 @@
                     <!-- <hr> -->
                     <p class="lead">Realism level</p>    
                     
-                    <div class="btn-group col-sm-auto" data-toggle="buttons">
-                        <label class="btn btn-info">
+                    <div class="btn-group col-sm-auto radiochecks" data-toggle="buttons">
+                        <label class="btn" style="color:#17a2b8">
                             <input type="radio" name="fidelity" id="fidelity_0" value="0" autocomplete="off"><!-- None --></input>
                             <span class="glyphicon glyphicon-ok">None</span>
                         </label>
 
-                        <label class="btn btn-success">
-                            <input type="radio" name="fidelity" id="fidelity_1" value="1"  autocomplete="off">
+                        <label class="btn" style="color:#008a20">
+                            <input type="radio" name="fidelity" id="fidelity_1" value="1"  autocomplete="off" checked="checked">
                             <span class="glyphicon glyphicon-ok">Minimal</span>
                         </label>
 
-                        <label class="btn btn-warning">
-                            <input type="radio" name="fidelity" id="fidelity_2" value="2" autocomplete="off" checked="checked">
+                        <label class="btn" style="color:#c3ac14">
+                            <input type="radio" name="fidelity" id="fidelity_2" value="2" autocomplete="off">
                             <span class="glyphicon glyphicon-ok">Good</span>
                         </label>
 
-                        <label class="btn btn-danger">
+                        <label class="btn" style="color:#bd2130">
                             <input type="radio" name="fidelity" id="fidelity_3" value="3" autocomplete="off">
                             <span class="glyphicon glyphicon-ok">Full</span>
                         </label>

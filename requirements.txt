@@ -1,3 +1,4 @@
+argpase==1.1
 async-generator==1.10
 backports.functools-lru-cache==1.6.1
 bert-tensorflow==1.0.1
@@ -18,7 +19,10 @@ Keras-Preprocessing==1.1.0
 mkl-fft==1.2.0
 mkl-random==1.1.1
 mkl-service==2.3.0
+neuracoref==4.0
+nltk==3.5
 numpy==1.19.4
+pandas==1.1.3
 pandocfilters==1.4.2
 protobuf==3.13.0
 ptyprocess==0.6.0
@@ -31,6 +35,7 @@ regex==2020.10.28
 scikit-learn==0.23.2
 Send2Trash==1.5.0
 sklearn==0.0
+spacy==2.1.0
 tensorboard==1.14.0
 tensorflow-estimator==1.14.0
 termcolor==1.1.0
