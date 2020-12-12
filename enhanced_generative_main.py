@@ -1,5 +1,6 @@
-sys.path.append('../enhancements')
-sys.path.append('../generative_module')
+import sys
+sys.path.append('./enhancements')
+sys.path.append('./generative_module')
 from Enhancements import remove_among_works, remove_repetitions, main, final_date_adjstment
 import generative_main
 
@@ -24,10 +25,10 @@ def generate_random_bio(threshold=0):
 
 def enhance_bio(bio):
 	"""Given a biography, performs the biographical enhancements on it."""
-    adjusted_bio = remove_among_works(remove_repetitions(bio))
-    try:
-        adjusted_bio = final_date_adjstment(main(adjusted_bio))
-    except:
-        adjusted_bio = final_date_adjstment(adjusted_bio)
+	adjusted_bio = remove_among_works(remove_repetitions(bio))
+	try:
+		adjusted_bio = final_date_adjstment(main(adjusted_bio))
+	except:
+		adjusted_bio = final_date_adjstment(adjusted_bio)
 
 	return adjusted_bio

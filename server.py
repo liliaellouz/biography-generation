@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, json
 import random
+import enhanced_generative_main
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
 	return render_template('index.html')
-
 
 
 @app.route('/', methods=['POST'])
