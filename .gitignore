@@ -10,3 +10,4 @@ weights/
 generative_module/checkpoint/
 generative_module/data/
 backup_requirements.txt
+__pycache__
