@@ -13,6 +13,7 @@ import pandas as pd
 from math import isnan
 import re
 from datetime import datetime
+import os
 # from nltk.corpus import stopwords
 # stop_words = stopwords.words('english')
     
@@ -326,8 +327,11 @@ def nlp_sd_date_adjustment(bio):
     return result_doc.text
 
 #get historical figures and clean it
-historical_figures_train = pd.read_csv('historical_figures/train1.csv')
-historical_figures_test = pd.read_csv('historical_figures/test.csv')
+curr_dir = os.path.dirname(os.path.abspath(__file__))
+train_file = os.path.join(curr_dir, 'historical_figures/train1.csv')
+test_file = os.path.join(curr_dir, 'historical_figures/test.csv')
+historical_figures_train = pd.read_csv(train_file)
+historical_figures_test = pd.read_csv(test_file)
 historical_figures = pd.concat([historical_figures_train, historical_figures_test], axis=0)
 historical_figures = historical_figures[historical_figures['birth_year'] != 'Unknown']
 historical_figures['birth_year'] = historical_figures['birth_year'].apply(lambda i: str(i).replace('?', ''))
