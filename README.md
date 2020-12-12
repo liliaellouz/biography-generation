@@ -9,7 +9,6 @@ The project can be roughly split into three modules:
  - an enhancements module, which applies date and historical figures adjustments to the generated biographies in order to make them more realistic and congurent.
  
 ## Usage
-TO BE FINISHED
 To start the server, run
 ```python
 python server.py
