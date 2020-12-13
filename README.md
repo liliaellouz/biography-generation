@@ -17,7 +17,10 @@ python server.py
 ## Installation
 For ease of installation, a `requirements.txt` has been automatically created from the virtual python environment used to develop the modules. To install them, simply run the command below in the root directory.
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt 
+
+# to install for current user only, run instead
+# pip install --user -r requirements.txt 
 ```
 
 In addition, in order to download the Spacy model required for the biography generation (for the enhancement module in particular), the following command should be run (after installing the libraries in `requirements.txt`):
