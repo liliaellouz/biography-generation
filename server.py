@@ -17,8 +17,7 @@ def get_bio():
 		occupation = request.form["occupation"]
 		fidelity = request.form["fidelity"]
 
-		# bio, bio_score = generate_bio(name, occupation, float(fidelity))
-		return f"{name} was a venetian {occupation}. The fidelity level of this bio is {fidelity}."
+		bio, bio_score = generate_bio(name, occupation, float(fidelity))
 		return bio
 
 
