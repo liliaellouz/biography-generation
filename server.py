@@ -18,12 +18,12 @@ def get_bio():
 		fidelity = request.form["fidelity"]
 
 		bio, bio_score = generate_bio(name, occupation, float(fidelity))
-		return bio
+		return ' '.join(bio.split(" [SEP] "))
 
 
 @app.route('/random', methods=['GET'])
 def randomize():
-	"""Generates random name & occupation combination"""
+	"""Randomly generates a believable occupation and Italian name."""
 	if request.method == "GET":
 		forenames = ["Giovanni", "Giovanna"]
 		surnames = ["Padova", "Belluno"]
@@ -33,13 +33,8 @@ def randomize():
 		last_names = ['Rossi', 'Russo', 'Ferrari', 'Esposito', 'Bianchi', 'Romano', 'Regio', 'Ricci', 'Marino', 'Lupo', 'Lastra', 'Bruno', 'Gallo', 'Conti', 'De Luca', 'Mancini', 'Costa', 'Giordano', 'Rizzo', 'Lombardi', 'Moretti']
 		occupations = ['Acrobat', 'Alchemist', 'Apothecarist', 'Architect', 'Astrologer', 'Armorer', 'Artist', 'Baker', 'Barrister', 'Bookbinder', 'Bowyer', 'Basket Weaver', 'Blacksmith', 'Brewer', 'Brick Layer', 'Butcher', 'Calligrapher', 'Candlemaker', 'Carpenter', 'Cartographer', 'Charcoal Burner', 'Clerk', 'Clothier', 'Cook', 'Coppersmith', 'Cooper', 'Diplomat', 'Dyer', 'Engineer', 'Engraver', 'Falconer', 'Farmer', 'Fisherman', 'Fishmonger', 'Forester', 'Fortune-Teller', 'Fruitier', 'Fuller', 'Furrier', 'Glassblower', 'Goldsmith', 'Grocer', 'Gardener', 'Grain Merchant', 'Grave Digger', 'Haberdasher', 'Herald', 'Herbalist', 'Hunter', 'Inkeeper', 'Interpreter', 'Jester', 'Jeweler', 'Lacemaker', 'Leatherworker', 'Locksmith', 'Mason', 'Mercer', 'Miller', 'Minstrel', 'Messenger', 'Miner', 'Moneylender', 'Navigator', 'Needleworker', 'Painter', 'Pardoner', 'Peddler', 'Priest', 'Physician', 'Playwright', 'Politician', 'Potter', 'Rat Catcher', 'Sailor', 'Scribe', 'Servant', 'Shipwright', 'Shoemaker', 'Silversmith', 'Solicitor', 'Soapmaker', 'Stoncarver', 'Storyteller', 'Spy', 'Tanner', 'Towne Crier', 'Vintner', 'Washer Woman', 'Waterman', 'Weaver', 'Wet Nurse', 'Wheelwright Wood Carver', 'Woodworker']
 
-		print(len(first_names))
-		print(len(last_names))
-		print(len(occupations))
-
-
 		result = {'name': random.choice(first_names) +" "+ random.choice(last_names),
-				'occupation' : random.choice(occupations)}
+				'occupation' : random.choice(occupations).lower()}
 		return json.dumps(result)
 
 

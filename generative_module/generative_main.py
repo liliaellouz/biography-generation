@@ -25,30 +25,31 @@ papers, articles and repositories:
     (https://github.com/ArmandDS/bert_for_long_text)"
 """
 
-sess = gpt2.start_tf_sess()
-gpt2.load_gpt2(sess, run_name='old_dates')
-
 def generate_bio(name, ocupation, threshold=0):
 	"""Given a name and an occupation (both strings), generates a biography 
 	and returns it and its associated minimum confidence level."""
-	global sess
 
-	# guarantee valid threshold value
+	gen_bio = ''
 	bio_score = -1
-	if threshold < 0:
-		threshold = 0
-	if threshold >= 1:
-		# default to classifier's threshold
-		threshold = 0.5
 
-	prompt = name.title() + ' was a Venetian ' + ocupation.lower() + '. [SEP] '
-	
-	while bio_score < threshold:
-		gen_bio = gpt2_generator.generate_fake_bio(prompt, sess)
+	with gpt2.start_tf_sess() as sess:
+		gpt2.load_gpt2(sess, run_name='old_dates')
 
-		s_df = bert_evaluator.evaluate_text(gen_bio)
-		realness_vals = s_df['prob_real'].values 
-		bio_score = np.min(realness_vals)
+		# guarantee valid threshold value
+		if threshold < 0:
+			threshold = 0
+		if threshold >= 1:
+			# default to classifier's threshold
+			threshold = 0.5
+
+		prompt = name.title() + ' was a Venetian ' + ocupation.lower() + '. [SEP] '
+		
+		while bio_score < threshold:
+			gen_bio = gpt2_generator.generate_fake_bio(prompt, sess)
+
+			s_df = bert_evaluator.evaluate_text(gen_bio)
+			realness_vals = s_df['prob_real'].values 
+			bio_score = np.min(realness_vals)
 
 	# return tuple (str generated_bio, float confidence)
 	return gen_bio, bio_score
@@ -57,22 +58,26 @@ def generate_bio(name, ocupation, threshold=0):
 def generate_bio_full_prompt(prompt, threshold=0):
 	"""Given a full prompt (a string), generates a biography and returns
 	it and its associated minimum confidence level."""
-	global sess
 
-	# guarantee valid threshold value
+	gen_bio = ''
 	bio_score = -1
-	if threshold < 0:
-		threshold = 0
-	if threshold >= 1:
-		# default to classifier's threshold
-		threshold = 0.5
-	
-	while bio_score < threshold:
-		gen_bio = gpt2_generator.generate_fake_bio(prompt, sess)
 
-		s_df = bert_evaluator.evaluate_text(gen_bio)
-		realness_vals = s_df['prob_real'].values 
-		bio_score = np.min(realness_vals)
+	with gpt2.start_tf_sess() as sess:
+		gpt2.load_gpt2(sess, run_name='old_dates')
+
+		# guarantee valid threshold value
+		if threshold < 0:
+			threshold = 0
+		if threshold >= 1:
+			# default to classifier's threshold
+			threshold = 0.5
+		
+		while bio_score < threshold:
+			gen_bio = gpt2_generator.generate_fake_bio(prompt, sess)
+
+			s_df = bert_evaluator.evaluate_text(gen_bio)
+			realness_vals = s_df['prob_real'].values 
+			bio_score = np.min(realness_vals)
 
 	# return tuple (str generated_bio, float confidence)
 	return gen_bio, bio_score
@@ -80,22 +85,26 @@ def generate_bio_full_prompt(prompt, threshold=0):
 def generate_random_bio(threshold=0):
 	"""Generates a random biography (generating a random name and occupation) 
 	and returns it and its associated minimum confidence level.."""
-	global sess
 
-	# guarantee valid threshold value
+	gen_bio = ''
 	bio_score = -1
-	if threshold < 0:
-		threshold = 0
-	if threshold >= 1:
-		# default to classifier's threshold
-		threshold = 0.5
-	
-	while bio_score < threshold:
-		gen_bio = gpt2_generator.generate_random_fake_bio(sess)
 
-		s_df = bert_evaluator.evaluate_text(gen_bio)
-		realness_vals = s_df['prob_real'].values 
-		bio_score = np.min(realness_vals)
+	with gpt2.start_tf_sess() as sess:
+		gpt2.load_gpt2(sess, run_name='old_dates')
+
+		# guarantee valid threshold value
+		if threshold < 0:
+			threshold = 0
+		if threshold >= 1:
+			# default to classifier's threshold
+			threshold = 0.5
+		
+		while bio_score < threshold:
+			gen_bio = gpt2_generator.generate_random_fake_bio(sess)
+
+			s_df = bert_evaluator.evaluate_text(gen_bio)
+			realness_vals = s_df['prob_real'].values 
+			bio_score = np.min(realness_vals)
 
 	# return tuple (str generated_bio, float confidence)
 	return gen_bio, bio_score
