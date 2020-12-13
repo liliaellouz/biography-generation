@@ -20,7 +20,7 @@ csv.field_size_limit(100000000)
 # define a few basic variables related to the BERT model's architecture
 MAX_SEQ_LENGTH = 200
 DROPOUT_KEEP_PROB = 0.5
-BERT_MODEL_DIR = 'checkpoint/bert'
+BERT_MODEL_DIR = '../checkpoint/bert'
 
 # This is a path to an uncased (all lowercase) version of BERT
 BERT_MODEL_HUB = "https://tfhub.dev/google/bert_uncased_L-12_H-768_A-12/1"
