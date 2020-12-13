@@ -23,7 +23,7 @@ pip install -r requirements.txt
 In addition, in order to download the Spacy model required for the biography generation (for the enhancement module in particular), the following command should be run (after installing the libraries in `requirements.txt`):
 
 ```bash
-python -m space download en
+python -m spacy download en
 ```
 
 Besides the code present in this repository, weights for both the GPT-2 and BERT models need to be downloaded. The file `checkpoint.zip` can be downloaded [here](https://drive.google.com/file/d/1_NO47MbZRuySLBoiAE-JXyMY0DTYb1yu/view?usp=sharing) and should be unzipped inside the `generative_module` folder.
