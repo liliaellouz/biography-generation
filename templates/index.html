@@ -107,8 +107,10 @@
             <!-- </div> -->
             
         </div>
-        <div id="loading-background"></div>
-        <div id="loading"></div>
+        <div id="loading-container">
+            <div id="loading-background"></div>
+            <div id="loading"></div>
+        </div>
     </div>
     	
 
@@ -121,7 +123,7 @@
     <script>
         (function($){
             function processForm( e ){
-                $('#loading, #loading-background').fadeIn();
+                $('#loading-container').fadeIn();
                 $.ajax({
                     url: '/',
                     dataType: 'text',
@@ -130,7 +132,7 @@
                     // contentType: 'application/json',
                     data: $(this).serialize(),
                     success: function( data, textStatus, jQxhr ){
-                        $('#loading, #loading-background').fadeOut();
+                        $('#loading-container').fadeOut();
                         $('#biography p').html( data );
                     },
                     error: function( jqXhr, textStatus, errorThrown ){

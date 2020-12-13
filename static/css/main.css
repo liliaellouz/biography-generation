@@ -32,23 +32,25 @@
     }
 }
 
-#loading-background {
+#loading-container {
   display: none;
+}
+
+#loading-background {
   background-color: black;
   opacity: 0.6;
   position: absolute;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   border-radius: inherit;
-  z-index: 10;
 }
 
 #loading {
-  display: none;
-  z-index: 100;
   position: absolute;
+  z-index: 100;
   top: 0;
   bottom: 0;
   left: 0;
