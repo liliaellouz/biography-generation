@@ -1,12 +1,12 @@
 # Venetian Biographies Generator
 
 ## Introduction
-In this project, we use generative models to come up with creative biographies of Venetian people that existed before the 20th century. Our motivation was originally to observe how such a model would pick up on underlying relationships between Venetian actors in old centuries as well as their relationships with people in the rest of the world. These underlying relationships might or might not come to light in every generated biography, but we can be sure that the model has the potential to offer fresh perspectives on historical tendencies.
+In this project, we use generative models to come up with creative biographies of Venetian people up to the 20th century. Our motivation was originally to observe how such a model would pick up on underlying relationships between Venetian actors in old centuries as well as their relationships with people in the rest of the world. These underlying relationships might or might not come to light in every generated biography, but the model certainly has the potential to pick up on some of them and offer fresh perspectives on historical tendencies.
 
 The project can be roughly split into three modules:
  - an interface and webserver, to allow interaction with the model;
  - a generative model, employing a GPT-2 model finetuned to generate venetian biographies, and a BERT model finetuned to act as a realness discriminator preventing lower quality biographies of being outputted;
- - an enhancements module, which applies date and historical figures adjustments to the generated biographies in order to make them more realistic and congurent.
+ - an enhancements module, which applies date and historical figures adjustments to the generated biographies in order to make them more realistic and congruent.
  
 ## Usage
 To start the server, run the command below in the root directory.
