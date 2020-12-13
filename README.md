@@ -9,17 +9,20 @@ The project can be roughly split into three modules:
  - an enhancements module, which applies date and historical figures adjustments to the generated biographies in order to make them more realistic and congurent.
  
 ## Usage
-To start the server, run
-```python
+To start the server, run the command below in the root directory.
+```bash
 python server.py
 ```
 
 ## Installation
-For ease of installation, a `requirements.txt` has been automatically created from the virtual python environment used to develop the modules.
+For ease of installation, a `requirements.txt` has been automatically created from the virtual python environment used to develop the modules. To install them, simply run the command below in the root directory.
+```bash
+pip install -r requirements.txt
+```
 
 In addition, in order to download the Spacy model required for the biography generation (for the enhancement module in particular), the following command should be run (after installing the libraries in `requirements.txt`):
 
-```
+```bash
 python -m space download en
 ```
 
