@@ -42,10 +42,12 @@
   right: 0;
   bottom: 0;
   border-radius: inherit;
+  z-index: 10;
 }
 
 #loading {
   display: none;
+  z-index: 100;
   position: absolute;
   top: 0;
   bottom: 0;
