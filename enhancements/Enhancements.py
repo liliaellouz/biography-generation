@@ -439,9 +439,13 @@ def replace_people(bio):
         new_bio = new_bio.replace(key.text, value)
     return new_bio
 
-def main(bio):
-    new_bio = replace_people(nlp_sd_date_adjustment(bio))
-    return new_bio
+def main(bio):  
+    adjusted_bio = remove_among_works(remove_repetitions(bio))
+    try:
+        bio = final_date_adjstment(replace_people(nlp_sd_date_adjustment(adjusted_bio))
+    except:
+        bio = final_date_adjstment(adjusted_bio)
+    return bio
 
 def parse_args():
     parser=argparse.ArgumentParser()
